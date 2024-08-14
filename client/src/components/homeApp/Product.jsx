@@ -1,5 +1,4 @@
 import React from "react";
-import "../grocery/Product.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
@@ -9,8 +8,8 @@ function Product(props) {
 
   let navigate = useNavigate();
 
-  const handleKnowMoreClick = () => {
-    navigate('homeApp/knowmore');
+  function handleKnowMoreClick(){
+    navigate('/knowmore');
   };
 
 
@@ -18,7 +17,7 @@ function Product(props) {
     <div className="card shadow-sm border-0 overflow-hidden rounded-lg h-100 bg-white">
       <img
         src={
-          prodObj.img ||
+          prodObj.image  ||
           "https://via.placeholder.com/300x200?text=Product+Image"
         }
         className="card-img-top img-fluid cover-image"
@@ -34,10 +33,7 @@ function Product(props) {
             ${prodObj.price}
           </p>
           <button
-          className="btn btn-outline-primary px-4 py-2 fs-5"
-          
-        ><a href="/knowmore">Know More</a>
-        </button>
+          className="btn btn-outline-primary px-4 py-2 fs-5" onClick={handleKnowMoreClick}>Know More</button>
 
 
           

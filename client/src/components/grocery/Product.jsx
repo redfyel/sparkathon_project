@@ -1,7 +1,6 @@
 import React from 'react'
 import './Product.css'
 function Product(props) {
-  console.log("Props are ", props);
   let prodObj = props.prodObj;
   
   function knowMore(prodObj){

@@ -1,0 +1,8 @@
+Model Information:
+* title:	Side Table
+* source:	https://sketchfab.com/3d-models/side-table-47c1fcd634ac44c2b018ff66ef43278b
+* author:	Graham Rust (https://sketchfab.com/GRXR.ca)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works
