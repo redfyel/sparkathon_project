@@ -3,11 +3,11 @@ import ThreeSixty from "react-360-view";
 
 function Model() {
   return (
-    <div className="App">
-      <h1>Hello Model</h1>
+    <div className="p-5 bg-white rounded-lg shadow-md">
+      <h1>View the 3D model</h1>
       <ThreeSixty
         amount={1}
-        imagePath="../../../public/images" 
+        imagePath="/images/img-1.jpg?v1" 
         fileName="img-{index}.jpg?v1"
       />
   
