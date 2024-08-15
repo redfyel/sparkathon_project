@@ -12,7 +12,7 @@ mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology
     .then(() => console.log('MongoDB connected'))
     .catch(err => console.error(err)); 
 
-    const mongoose = require("mongoose");
+
 
 const ImageDetailsScehma = new mongoose.Schema(
       {
@@ -45,7 +45,7 @@ images.post("/upload-image", upload.single("image"), async (req, res) => {
   const imageName = req.file.filename;
 
   try {
-    await Images.create({ image: imageName });
+    await images.create({ image: imageName });
     res.json({ status: "ok" });
   } catch (error) {
     res.json({ status: error });
@@ -54,7 +54,7 @@ images.post("/upload-image", upload.single("image"), async (req, res) => {
 
 images.get("/get-image", async (req, res) => {
   try {
-    Images.find({}).then((data) => {
+    images.find({}).then((data) => {
       res.send({ status: "ok", data: data });
     });
   } catch (error) {

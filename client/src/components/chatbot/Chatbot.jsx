@@ -1,41 +1,30 @@
 import React, { useState } from 'react';
 
-function Chatbot() {
+const Chatbot = () => {
   const [messages, setMessages] = useState([]);
   const [userInput, setUserInput] = useState('');
 
-  const handleSendMessage = () => {
-    if (userInput.trim() !== '') {
-      setMessages([...messages, { role: 'user', content: userInput }]);
-      setUserInput('');
-
-      // Replace this with your chatbot logic
-      const chatbotResponse = { role: 'chatbot', content: 'You said: ' + userInput };
-      setMessages([...messages, chatbotResponse]);
-    }
+  const handleSendMessage   
+ = () => {
+    setMessages([...messages, { role: 'user', content: userInput }]);
+    // Process user input and generate chatbot response
+    const chatbotResponse = { role: 'bot', content: 'You said: ' + userInput };
+    setMessages([...messages, chatbotResponse]);
+    setUserInput('');
   };
 
   return (
-    <div className="chatbot">
-      <div className="message-container">
+    <div>
+      <div>
         {messages.map((message, index) => (
-          <div key={index} className={`message ${message.role}`}>
-            {message.content}
-          </div>   
-
+          <div key={index}>{message.role === 'user' ? 'You: ' : 'Bot: '}{message.content}</div>
         ))}
       </div>
-      <div className="input-container">
-        <input
-          type="text"   
+      <input type="text" value={userInput} onChange={(e) => setUserInput(e.target.value)} />
+      <button onClick={handleSendMessage}>Send</button>
+    </div>   
 
-          value={userInput}
-          onChange={(e) => setUserInput(e.target.value)}
-        />
-        <button onClick={handleSendMessage}>Send</button>
-      </div>
-    </div>
   );
-}
+};
 
 export default Chatbot;

@@ -2,7 +2,7 @@ import React from 'react';
 import Product from '../clothing/Product'
 import { useEffect, useState } from 'react';
 import {useNavigate} from 'react-router-dom';
-// import axios from "axios";
+import axios from "axios";
 
 
 const OutfitRecommendation = () => {
@@ -31,9 +31,17 @@ const handleImageUpload = async (event) => {
   console.log(imageFile);
 
   setLoading(true); 
+  const formData = new FormData();
+  formData.append("image", imageFile);
 
   
-
+  const result = await axios.post(
+    "http://localhost:4000/products/images/upload-image",
+    formData,
+    {
+      headers: { "Content-Type": "multipart/form-data" },
+    }
+  );
   console.log("formData", formData);
 
   try {
@@ -53,19 +61,12 @@ const handleImageUpload = async (event) => {
     console.error('Error processing image:', error);
     setLoading(false);
   }
+
+ 
 };
 
-const handleUpload =  async (event) => {
-  event.preventDefault()
-  // const result = await axios.post(
-  //   "http://localhost:4000/products/images/upload-image",
-  //   formData,
-  //   {
-  //     headers: { "Content-Type": "multipart/form-data" },
-  //   }
-  // );
+const handleUpload =   (event) => {
     navigate(`/chatbot`);
- 
 }
   return (
     
